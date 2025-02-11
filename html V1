@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio | Vitor Heitor</title>
+  <style>
+      body {
+          font-family: 'Inter', sans-serif;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: #f5f5f5;
+          color: #272B35;
+      }
+      .top-banner {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 35px;
+          background-color: #3FA36D;
+          color: #fff;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          white-space: nowrap;
+          z-index: 1000;
+      }
+      .banner-text {
+          display: inline-flex;
+          gap: 20px;
+          /* 4 repetições dos 3 blocos = 12 itens */
+          /* Largura total ~4 vezes o container */
+          min-width: 400%;
+          animation: scrollBanner 120s linear infinite;
+      }
+      @keyframes scrollBanner {
+          0% {
+              transform: translateX(0);
+          }
+          100% {
+              transform: translateX(-25%);
+          }
+      }
+
+      .container {
+          width: 100%;
+          max-width: 500px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: 40px;
+      }
+      .social-links a {
+          display: inline-block;
+          margin-right: 10px;
+          color: #B0B3BA;
+          text-decoration: none;
+          font-size: 14px;
+      }
+      .menu-container {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin: 20px 0;
+          width: 100%;
+      }
+      .menu {
+          display: flex;
+          gap: 15px;
+      }
+      .menu span {
+          cursor: pointer;
+          padding: 5px 10px;
+          border-radius: 5px;
+          background-color: #EAEAEA;
+          color: #272B35;
+          transition: background 0.3s;
+      }
+      .menu span.active {
+          background-color: #3FA36D;
+          color: #fff;
+      }
+      .feed {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin-top: 20px;
+      }
+      .video-card {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+      }
+      .video-card video {
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+          border-radius: 10px;
+          transition: transform 0.3s ease-in-out;
+      }
+      .video-card video:hover {
+          transform: scale(1.03);
+      }
+      .video-card h3 {
+          font-size: 16px;
+          margin: 10px 0 3px;
+      }
+      .video-card p {
+          margin: 0 0 10px;
+          font-size: 12px;
+          color: #B0B3BA;
+      }
+      .hashtag {
+          color: #0073e6;
+          cursor: pointer;
+      }
+      #email-popup {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: #fff;
+          border: 2px solid #ccc;
+          padding: 20px;
+          border-radius: 10px;
+          z-index: 2000;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          color: #272B35;
+          width: 280px;
+      }
+      #email-popup h2 {
+          margin-top: 0;
+          text-align: center;
+      }
+      #email-popup p {
+          margin-bottom: 10px;
+          text-align: center;
+      }
+      #email-popup .popup-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 10px;
+      }
+      #email-popup button {
+          background: #3FA36D;
+          color: #fff;
+          border: none;
+          padding: 8px 12px;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+      #overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.3);
+          z-index: 1999;
+      }
+
+      @media (max-width: 768px) {
+          .container {
+              padding: 10px;
+              max-width: 90%;
+              margin-top: 20px;
+          }
+      }
+  </style>
+</head>
+<body>
+  <!-- Overlay -->
+  <div id="overlay" onclick="closePopup()"></div>
+  <!-- Popup -->
+  <div id="email-popup">
+    <h2>E-mail</h2>
+    <p id="email-text">vhsousa2012@gmail.com</p>
+    <div class="popup-buttons">
+      <button onclick="copyEmail()">Copiar</button>
+      <button onclick="closePopup()">Fechar</button>
+    </div>
+  </div>
+
+  <div class="top-banner">
+    <div class="banner-text">
+      <span>VITORHEITOR @2025</span>
+      <span>CREATIVE AUDIOVISUAL</span>
+      <span>🤯</span>
+
+      <span>VITORHEITOR @2025</span>
+      <span>CREATIVE AUDIOVISUAL</span>
+      <span>🤯</span>
+
+      <span>VITORHEITOR @2025</span>
+      <span>CREATIVE AUDIOVISUAL</span>
+      <span>🤯</span>
+
+      <span>VITORHEITOR @2025</span>
+      <span>CREATIVE AUDIOVISUAL</span>
+      <span>🤯</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="sidebar">
+      <p>Vitor Heitor é formado em Produção Multimídia, atua como Motion Designer, Videomaker e editor de vídeos. Além de se aventurar na criação de conteúdo como UGC e para seu próprio perfil.</p>
+      <div class="social-links">
+        <a href="javascript:void(0)" onclick="openPopup()">Email</a>
+        <a href="https://media.milanote.com/p/files/1THCUK1gndcceO/uGE/Vitor%20-%20%20Portugue%CC%82s%20%28BR%29.pdf" target="_blank">Currículo</a>
+        <a href="https://www.behance.net/vhsousa2013ae8" target="_blank">Behance</a>
+        <a href="https://www.instagram.com/vitorheitorr/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@vitorheitor" target="_blank">TikTok</a>
+      </div>
+    </div>
+    <div class="menu-container">
+      <span>Filtro:</span>
+      <div class="menu">
+        <span data-category="all" onclick="filterVideos('all')" class="active">#todos</span>
+        <span data-category="motion" onclick="filterVideos('motion')">#motion</span>
+        <span data-category="videomaker" onclick="filterVideos('videomaker')">#videomaker</span>
+        <span data-category="eutiktoker" onclick="filterVideos('eutiktoker')">#eutiktoker</span>
+      </div>
+    </div>
+    <div class="feed"></div>
+  </div>
+  <script>
+      const videos = [
+          {title: "Add the site in a subdomain", desc: "Video de Tips & Tricks produzido para a empresa Duda", tag: "videomaker", src: "https://media.milanote.com/p/files/1THBeg1gndccew/CBk/REELS_Add%20the%20site%20in%20a%20subdomain.mp4"},
+          {title: "Simple Editor Marketing Video", desc: "Motion: Vitor Heitor & Livia Aprá | Design: Doron Porát", tag: "motion", src: "https://media.milanote.com/p/files/1THBqF1gndcceI/8PC/Simple%20Editor_9x16.mp4"},
+          {title: "Reels Porto Blue Sound Floripa", desc: "Cobertura de evento para Instagram da Porto", tag: "videomaker", src: "https://media.milanote.com/p/files/1THBeU1gndcceA/OYp/Porto%20Blue%20Sound%20-%20Floripa%20v1.mp4"},
+          {title: "Meu vídeo viral no TikTok", desc: "Explorando a plataforma TikTok e me divertindo no processo", tag: "eutiktoker", src: "https://media.milanote.com/p/files/1THCe41gndcceM/54X/v09044g40000crjo1rnog65u8cj0l4sg.mp4"},
+          {title: "GRWM para Yellowstone (UOL Play)", desc: "Gravação de TikTok para UOL Play", tag: "eutiktoker", src: "https://media.milanote.com/p/files/1THCcq1gndcceL/PTt/SnapTik_App_7437490208981011767-HD.mp4"},
+          {title: "Duda Tips & Tricks: Payment method in your store", desc: "Captação: Vitor Heitor | Edição: Iasmin Almeida", tag: "videomaker", src: "https://media.milanote.com/p/files/1THBeg1gndccey/tJe/REELS_payment%20method%20in%20your%20store.mp4"},
+          {title: "DudaCon - ADS", desc: "Vídeo publicitário para o congresso online da Duda", tag: "motion", src: "https://media.milanote.com/p/files/1THBrv1gndcceJ/8LE/Dudacon%20v15-1%20-%20Sunny%20Fruit%20Music.mp4"},
+          {title: "Year In Review Post for Instagram", desc: "Animação criada para redes sociais e página Year in Review", tag: "motion", src: "https://media.milanote.com/p/files/1THBjr1gndcceB/wCW/YIR%20post%20v2%20%281080x1920%29.mp4"},
+          {title: "Marcopolo - Dicas para uma viagem de ônibus", desc: "Vídeo de UGC. Não fiz a edição.", tag: "eutiktoker", src: "https://media.milanote.com/p/files/1THCeu1gndcceN/GJo/v09300g40001crvi467og65pb5tomvlg.mp4"},
+          {title: "SEO Benefits - Post Instagram", desc: "Divulgação de funcionalidade na plataforma", tag: "motion", src: "https://media.milanote.com/p/files/1THBjN1gndcceC/2wi/SEO%20Benefits%20-%20v6.mp4"}
+      ,
+          {title: "Vídeo Reels Formatura", desc: "Storymaker pela agencia Podium, gravação e edição simultanea.", tag: "videomaker", src: "https://media.milanote.com/p/files/1THBeg1gndccex/hZk/REELS_Formatura.mov"}
+      ];
+
+      function loadVideos() {
+          const container = document.querySelector('.feed');
+          container.innerHTML = '';
+          videos.forEach(video => {
+              const videoCard = document.createElement('div');
+              videoCard.classList.add('video-card', video.tag);
+              videoCard.innerHTML = `
+                  <video controls>
+                      <source src="${video.src}" type="video/mp4">
+                  </video>
+                  <h3>${video.title}</h3>
+                  <p>${video.desc} <span class='hashtag' onclick="filterVideos('${video.tag}')">#${video.tag}</span></p>
+              `;
+              container.appendChild(videoCard);
+          });
+
+          // Ajustar object-fit ao dar play/pause
+          document.querySelectorAll('video').forEach(vid => {
+              vid.addEventListener('play', () => {
+                  vid.style.objectFit = 'contain';
+                  vid.style.aspectRatio = '';
+              });
+              vid.addEventListener('pause', () => {
+                  vid.style.objectFit = 'cover';
+                  vid.style.aspectRatio = '1/1';
+              });
+          });
+      }
+
+      function filterVideos(category) {
+          document.querySelectorAll('.video-card').forEach(card => {
+              card.style.display = (category === 'all' || card.classList.contains(category)) ? 'flex' : 'none';
+          });
+          document.querySelectorAll('.menu span').forEach(span => {
+              span.classList.remove('active');
+          });
+          document.querySelector(`[data-category="${category}"]`).classList.add('active');
+      }
+
+      function openPopup() {
+          document.getElementById('overlay').style.display = 'block';
+          document.getElementById('email-popup').style.display = 'block';
+      }
+
+      function closePopup() {
+          document.getElementById('overlay').style.display = 'none';
+          document.getElementById('email-popup').style.display = 'none';
+      }
+
+      function copyEmail() {
+          const text = document.getElementById('email-text').innerText;
+          if (navigator.clipboard) {
+              navigator.clipboard.writeText(text)
+              .then(() => {
+                  alert('Email copiado: ' + text);
+              })
+              .catch(() => {
+                  fallbackCopyTextToClipboard(text);
+              });
+          } else {
+              fallbackCopyTextToClipboard(text);
+          }
+      }
+
+      function fallbackCopyTextToClipboard(text) {
+          // Criar textArea fora da tela para não pular no scroll
+          const textArea = document.createElement('textarea');
+          textArea.style.position = 'fixed';
+          textArea.style.left = '-9999px';
+          textArea.value = text;
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          try {
+              document.execCommand('copy');
+              alert('Email copiado: ' + text);
+          } catch (err) {
+              console.error('Fallback: Oops, unable to copy', err);
+          }
+          document.body.removeChild(textArea);
+      }
+
+      loadVideos();
+  </script>
+</body>
+</html>
